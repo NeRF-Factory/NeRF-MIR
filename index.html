@@ -15,16 +15,16 @@
     <div style="text-align: center;">
         <h1>Mask-NeRF:</h1>
         <h3>Neural Radiance Fields for Masked Image Restoration</h3>
-<!--        <div style="margin-bottom: 10px;">-->
-<!--            <span style="margin-right: 10px; font-size: 1.2em;">Michael Niemeyer</span> <span style="font-size: 1.2em;">Andreas Geiger</span>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--        <span style="margin-right: 10px; font-size: 1.2em;">Max Planck Institute for Intelligent Systems and University-->
-<!--          of Tübingen</span>-->
-<!--        </div>-->
-<!--        <div>-->
-<!--            <span style="margin-right: 10px; font-size: 1.2em;">CVPR 2021 (oral, <strong>best paper award</strong>)</span>-->
-<!--        </div>        -->
+        <!--        <div style="margin-bottom: 10px;">-->
+        <!--            <span style="margin-right: 10px; font-size: 1.2em;">Michael Niemeyer</span> <span style="font-size: 1.2em;">Andreas Geiger</span>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--        <span style="margin-right: 10px; font-size: 1.2em;">Max Planck Institute for Intelligent Systems and University-->
+        <!--          of Tübingen</span>-->
+        <!--        </div>-->
+        <!--        <div>-->
+        <!--            <span style="margin-right: 10px; font-size: 1.2em;">CVPR 2021 (oral, <strong>best paper award</strong>)</span>-->
+        <!--        </div>        -->
         <div>
             <span style="margin-right: 10px; font-size: 1.2em;">Anonymous CVPR submission</span>
         </div>
@@ -33,36 +33,36 @@
         <img src="./pipeline.png" class="img-fluid" alt="pipeline" width="60%">
     </div>
     <div class="text-center" style="font-size: 1.5em; margin-bottom: 30px;">
-        <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR.pdf" target="_blank" style="margin-right: 20px;">[Paper]</a>
-        <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR_supplementary.pdf" target="_blank" style="margin-right: 20px;">[Supplementary]</a>
+<!--        <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR.pdf" target="_blank" style="margin-right: 20px;">[Paper]</a>-->
+<!--        <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR_supplementary.pdf" target="_blank" style="margin-right: 20px;">[Supplementary]</a>-->
         <a href="https://github.com/autonomousvision/giraffe" target="_blank" style="margin-right: 20px;">[Code]</a>
-        <a href="http://autonomousvision.github.io/giraffe" target="_blank" style="margin-right: 20px;">[Blog]</a>
+<!--        <a href="http://autonomousvision.github.io/giraffe" target="_blank" style="margin-right: 20px;">[Blog]</a>-->
         <a href="http://www.youtube.com/watch?v=fIaDXC-qRSg&amp;vq=hd1080&amp;autoplay=1" target="_blank" style="margin-right: 20px;">[Video]</a>
-        <a href="https://m-niemeyer.github.io/slides/talks/giraffe/index.html" target="_blank" style="margin-right: 20px;">[Interactive Slides]</a>
-        <a href="https://www.youtube.com/watch?v=scnXyCSMJF4" target="_blank">[Talk]</a>
+<!--        <a href="https://m-niemeyer.github.io/slides/talks/giraffe/index.html" target="_blank" style="margin-right: 20px;">[Interactive Slides]</a>-->
+<!--        <a href="https://www.youtube.com/watch?v=scnXyCSMJF4" target="_blank">[Talk]</a>-->
     </div>
     <div>
         <h2 class="text-center">
             Abstract
         </h2>
         <p style="font-style: italic;">
-           Recently, neural radiance fields (NeRF) have demonstrated remarkable performance in novel view synthesis.
-However, there is little work on recovering 3D scenes with
-interference, which is ubiquitous in natural scene capture
-and can significantly degrade the performance of NeRFs.
-In this paper, we present Mask-NeRF, a neural rendering
-method for restoring masked realistic scene images. Observing that randomly emitting rays to pixels in NeRFs can-
-not effectively learn complex textures in images, we propose an image entropy-based ray allocation strategy to
-properly distribute the emitted rays, which enables Mask-NeRF to fuse useful information from images of different
-views. In addition, we develop an iteration restoration
-mechanism to progressively restore the masked images in
-a self-training way. Our method can be easily plugged into
-most existing NeRF methods, and applicable to many subsequent computer vision tasks. As existing datasets do not
-support NeRF-based masked image restoration, we build
-the light-field-forward-facing masked dataset (LLFF-M in
-short) based on the LLFF dataset to simulate interference
-scenarios. Extensive experiments on LLFF-M show that
-Mask-NeRF is superior to the counterparts in masked image restoration.
+            Recently, neural radiance fields (NeRF) have demonstrated remarkable performance in novel view synthesis.
+            However, there is little work on recovering 3D scenes with
+            interference, which is ubiquitous in natural scene capture
+            and can significantly degrade the performance of NeRFs.
+            In this paper, we present Mask-NeRF, a neural rendering
+            method for restoring masked realistic scene images. Observing that randomly emitting rays to pixels in NeRFs can-
+            not effectively learn complex textures in images, we propose an image entropy-based ray allocation strategy to
+            properly distribute the emitted rays, which enables Mask-NeRF to fuse useful information from images of different
+            views. In addition, we develop an iteration restoration
+            mechanism to progressively restore the masked images in
+            a self-training way. Our method can be easily plugged into
+            most existing NeRF methods, and applicable to many subsequent computer vision tasks. As existing datasets do not
+            support NeRF-based masked image restoration, we build
+            the light-field-forward-facing masked dataset (LLFF-M in
+            short) based on the LLFF dataset to simulate interference
+            scenarios. Extensive experiments on LLFF-M show that
+            Mask-NeRF is superior to the counterparts in masked image restoration.
         </p>
     </div>
     <div style="margin-top:10px;">
@@ -77,15 +77,12 @@ Mask-NeRF is superior to the counterparts in masked image restoration.
         <h2 class="text-center">
             Results
         </h2>
-        <h4>Comparison Against a 2D-based GAN</h4>
-        <p>
-            Note how translating one object affects the other for a 2D-based GAN. In contrast, we incorporate <span style="font-weight: bold;">compositional 3D scene structure</span> into the generative model, leading to more
-            consistent results.</p>
+        <h4>Comparison Against original NeRF on LLFF-M dataset</h4>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
                 <div class="embed-responsive embed-responsive-16by9">
                     <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                        <source src="gfx/clevr/2dgan.webm" type="video/webm">
+                        <source src="fern_nerf.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="text-center">
@@ -95,7 +92,7 @@ Mask-NeRF is superior to the counterparts in masked image restoration.
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
                 <div class="embed-responsive embed-responsive-16by9">
                     <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                        <source src="gfx/clevr/ours.webm" type="video/webm">
+                        <source src="fern_ours.mp4" type="video/mp4">
                     </video>
                 </div>
                 <div class="text-center">
