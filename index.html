@@ -6,7 +6,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>GIRAFFE: Representing Scenes as Compositional Generative Neural Feature Fields</title>
+    <title>Mask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
 </head>
 
 <body>
@@ -30,7 +30,7 @@
         </div>
     </div>
     <div class="text-center" style="margin-top: 60px; margin-bottom: 20px;">
-        <img src="gfx/overview.svg" class="img-fluid" alt="Responsive image" width="60%">
+        <img src="./pipeline.png" class="img-fluid" alt="pipeline" width="60%">
     </div>
     <div class="text-center" style="font-size: 1.5em; margin-bottom: 30px;">
         <a href="http://www.cvlibs.net/publications/Niemeyer2021CVPR.pdf" target="_blank" style="margin-right: 20px;">[Paper]</a>
@@ -46,20 +46,23 @@
             Abstract
         </h2>
         <p style="font-style: italic;">
-            Deep generative models allow for photorealistic image synthesis at high resolutions. But for many applications,
-            this is not enough: content creation also needs to be controllable. While several recent works investigate how
-            to disentangle underlying factors of variation in the data, most of them operate in 2D and hence ignore that our
-            world is three-dimensional. Further, only few works consider the compositional nature of scenes. Our key
-            hypothesis is that incorporating a compositional 3D scene representation into the generative model leads to more
-            controllable image synthesis. Representing scenes as compositional generative neural feature fields allows us to
-            disentangle one or multiple objects from the background as well as individual objects' shapes and appearances
-            while learning from unstructured and unposed image collections without any additional supervision. Combining
-            this scene representation with a neural rendering pipeline yields a fast and realistic image synthesis model. As
-            evidenced by our experiments, our model is able to disentangle individual objects and allows for translating and
-            rotating them in the scene as well as changing the camera pose.
-        </p>
-        <p>
-            <span style="font-weight: bold;">TL;DR:</span> We incorporate a compositional 3D scene representation into the generative model which leads to more controllable image synthesis.
+           Recently, neural radiance fields (NeRF) have demonstrated remarkable performance in novel view synthesis.
+However, there is little work on recovering 3D scenes with
+interference, which is ubiquitous in natural scene capture
+and can significantly degrade the performance of NeRFs.
+In this paper, we present Mask-NeRF, a neural rendering
+method for restoring masked realistic scene images. Observing that randomly emitting rays to pixels in NeRFs can-
+not effectively learn complex textures in images, we propose an image entropy-based ray allocation strategy to
+properly distribute the emitted rays, which enables Mask-NeRF to fuse useful information from images of different
+views. In addition, we develop an iteration restoration
+mechanism to progressively restore the masked images in
+a self-training way. Our method can be easily plugged into
+most existing NeRF methods, and applicable to many subsequent computer vision tasks. As existing datasets do not
+support NeRF-based masked image restoration, we build
+the light-field-forward-facing masked dataset (LLFF-M in
+short) based on the LLFF dataset to simulate interference
+scenarios. Extensive experiments on LLFF-M show that
+Mask-NeRF is superior to the counterparts in masked image restoration.
         </p>
     </div>
     <div style="margin-top:10px;">
