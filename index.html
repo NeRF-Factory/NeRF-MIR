@@ -8,8 +8,21 @@
 
     <title>Mask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
 </head>
+<style>
+    .nivoSlider {
+    position: relative;
+    margin: 0 auto;
+    overflow:hidden;
+    height:378px;
+    }
 
+    .nivoSlider .slide{
+      
+        position: absolute;
+    }
+</style>
 <body>
+
 <div class="container">
     <br>
     <div style="text-align: center;">
@@ -70,14 +83,93 @@
             Video
         </h2>
         <div class="embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/fIaDXC-qRSg" allowfullscreen=""></iframe>
+            <iframe class="embed-responsive-item" src="https://www.bilibili.com/cheese/play/ep6173?csource=UGCplayer_relevantclass" allowfullscreen=""></iframe>
         </div>
     </div>
     <div style="margin-top:20px;">
         <h2 class="text-center">
+            Dataset
+        </h2>
+        <div class="nivoSlider" οnmοuseοver="stop()" οnmοuseοut="start()">
+            <div class="slide">
+                <img src="./assert/image/image000.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image001.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image002.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image003.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image004.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image005.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image006.png">
+            </div>
+            <div class="slide">
+                <img src="./assert/image/image007.png">
+            </div>
+        </div>
+    <script type="text/javascript">
+    onload = function () {
+        var arr = document.getElementsByClassName("slide");
+        for (var i = 0; i < arr.length; i++) {
+            arr[i].style.left = i * 504 + "px";
+        }
+    }
+
+    function LeftMove() {
+        var arr = document.getElementsByClassName("slide");
+        for (var i = 0; i < arr.length; i++) {
+            var left = parseFloat(arr[i].style.left);
+            left -= 2;
+            var width = 504;
+            if (left <= -width) {
+                left = (arr.length - 1) * width;
+                clearInterval(moveId);
+            }
+            arr[i].style.left = left + "px";
+        }
+
+    }
+
+    moveId = setInterval(LeftMove, 10);
+
+
+    function divInterval() {
+        moveId = setInterval(LeftMove, 10);
+    }
+
+    timeId = setInterval(divInterval, 6461);
+
+    function stop() {
+        clearInterval(timeId);
+        clearInterval(moveId);
+    }
+    function start() {
+        moveId = setInterval(LeftMove, 10);
+        clearInterval(timeId);
+        timeId = setInterval(divInterval, 6461);
+    }
+    onblur = function () {
+        stop();
+    }
+    onfocus = function () {
+        start();
+    }
+
+</script>
+
+    <h2 class="text-center">
             Results
         </h2>
-        <h4 class="text-center">Comparison Against original NeRF on LLFF-M dataset</h4>
+        <h4 class="text-center">Comparison Against original NeRF on LLFF-M dataset(random 25% square mask)</h4>
         <div class="row">
 
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
@@ -192,12 +284,15 @@
         }
       </pre>
     </div>
+<!-- 为整个页面添加onload加载完成事件，当浏览器打开并加载完并自动执行事件中的代码块 -->
+<!-- 当页面加载完全，四个div（图片）应该并列在一起。 -->
 
-    <!-- Optional JavaScript -->
+
+<!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./jquery.min.js"></script>
+    <script src="./popper.js"></script>
+    <script src="./bootstrap.min.js"></script>
 
 
 
