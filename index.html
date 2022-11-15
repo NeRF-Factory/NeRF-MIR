@@ -6,7 +6,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Mask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
+    <title>DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
 </head>
 <style>
     .nivoSlider {
@@ -26,7 +26,7 @@
 <div class="container">
     <br>
     <div style="text-align: center;">
-        <h1>Mask-NeRF:</h1>
+        <h1>DeMask-NeRF:</h1>
         <h3>Neural Radiance Fields for Masked Image Restoration</h3>
         <!--        <div style="margin-bottom: 10px;">-->
         <!--            <span style="margin-right: 10px; font-size: 1.2em;">Michael Niemeyer</span> <span style="font-size: 1.2em;">Andreas Geiger</span>-->
@@ -63,10 +63,10 @@
             However, there is little work on recovering 3D scenes with
             interference, which is ubiquitous in natural scene capture
             and can significantly degrade the performance of NeRFs.
-            In this paper, we present Mask-NeRF, a neural rendering
+            In this paper, we present DeMask-NeRF, a neural rendering
             method for restoring masked realistic scene images. Observing that randomly emitting rays to pixels in NeRFs can-
             not effectively learn complex textures in images, we propose an image entropy-based ray allocation strategy to
-            properly distribute the emitted rays, which enables Mask-NeRF to fuse useful information from images of different
+            properly distribute the emitted rays, which enables DeMask-NeRF to fuse useful information from images of different
             views. In addition, we develop an iteration restoration
             mechanism to progressively restore the masked images in
             a self-training way. Our method can be easily plugged into
@@ -75,7 +75,7 @@
             the light-field-forward-facing masked dataset (LLFF-M in
             short) based on the LLFF dataset to simulate interference
             scenarios. Extensive experiments on LLFF-M show that
-            Mask-NeRF is superior to the counterparts in masked image restoration.
+            DeMask-NeRF is superior to the counterparts in masked image restoration.
         </p>
     </div>
     <div style="margin-top:10px;">
@@ -188,7 +188,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
                 <div class="text-center">
                     <p>
-                        Mask-NeRF
+                        DeMask-NeRF
                     </p>
                 </div>
                 <div class="embed-responsive embed-responsive-16by9">
@@ -278,7 +278,7 @@
 <!--        </p>-->
 <!--        <pre>        @inproceedings{...,-->
 <!--          author    = {...},-->
-<!--          title     = {Mask-NeRF: Neural Radiance Fields for Masked Image Restoration},-->
+<!--          title     = {DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration},-->
 <!--          booktitle   = {Proc. IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},-->
 <!--          year      = {2023},-->
 <!--        }-->
