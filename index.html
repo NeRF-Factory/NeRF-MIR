@@ -150,60 +150,9 @@
                 </video>
             </div>
         </div>
-        <h4 class="text-center" style="margin-top: 20px">Slide to remove mask!</h4>
-        <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
-            <div class="slider">
-                <img src="assert/slider/fern_data.png" alt="">
-                <img src="assert/slider/fern_result.png" alt="">
-            </div>
-            <div class="slider">
-                <img src="assert/slider/flower_data.png" alt="">
-                <img src="assert/slider/flower_result.png" alt="">
-            </div>
-        </div>
-        <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
-            <div class="slider" style=" width: 800px;height: 480px;">
-                <img src="assert/slider/052_data.JPG" alt="">
-                <img src="assert/slider/052_result.png" alt="">
-            </div>
-            <div class="slider" style=" width: 800px;height: 480px;">
-                <img src="assert/slider/073_data.JPG" alt="">
-                <img src="assert/slider/073_result.png" alt="">
-            </div>
-        </div>
-        <script>
-            $(".slider").each(function () {
-
-                var img = $(this).find('img');
-
-                var img1 = img.eq(0);
-
-                var img2 = img.eq(1);
-
-                var div = document.createElement('div');
-
-                $(div).append(img1);
-
-                var input = document.createElement('input');
-
-                input.type = 'range';
-
-                input.oninput = function () {
-
-                    div.style.width = this.value + "%";
-
-                }
-
-                $(this).html("");
-
-                $(this).append(img2);
-
-                $(this).append(div);
-
-                $(this).append(input);
-
-            });
-        </script>
+       
+        
+       
         <div style="margin-top:20px;">
             <h2 class="text-center">
                 Dataset
@@ -329,9 +278,21 @@
             </script>
 
             <h2 class="text-center">
-                Results
+                LLFF-M Results
             </h2>
-            <h4 class="text-center">Comparison Against original NeRF on LLFF-M dataset(random 25% square mask)</h4>
+            <h4 class="text-center" style="margin-top: 20px">Slide to remove mask!</h4>
+            <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
+                <div class="slider">
+                    <img src="assert/image/fern_data.png" alt="">
+                    <img src="assert/image/fern_result.png" alt="">
+                </div>
+                <div class="slider">
+                    <img src="assert/image/flower_data.png" alt="">
+                    <img src="assert/image/flower_result.png" alt="">
+                </div>
+            </div>
+            
+            <h4 class="text-center">Comparison Against original NeRF on LLFF-M dataset</h4>
             <div class="row">
 
                 <div class="col-md-6 col-sm-6 col-xs-12 gallery">
@@ -408,28 +369,6 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                            <source src="./assert/horns_nerf.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="text-center">
-
-                    </div>
-                </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                            <source src="./assert/horns_ours.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="text-center">
-
-                    </div>
-                </div>
-            </div>
 
 
         </div>
@@ -492,30 +431,68 @@
             </div>
         </div>
 
+
+        <h2 class="text-center">
+            Space-M Results
+        </h2>
+        <h4 class="text-center" style="margin-top: 20px">Slide to remove mask!</h4>
+        <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
+            <div class="slider" style=" width: 800px;height: 480px;">
+                <img src="assert/image/052_data.JPG" alt="">
+                <img src="assert/image/052_result.png" alt="">
+            </div>
+            <div class="slider" style=" width: 800px;height: 480px;">
+                <img src="assert/image/073_data.JPG" alt="">
+                <img src="assert/image/073_result.png" alt="">
+            </div>
+        </div>
+        <h4 class="text-center">Comparison Against original NeRF on Space-M dataset</h4>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                        <source src="./assert/space_nerf.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-center">
+
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                        <source src="./assert/space_ours.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-center">
+
+                </div>
+            </div>
+        </div>
         <h3 class="text-center" style="margin-top: 20px">Real-world scenes</h4>
             <h4 class="text-center" style="margin-top: 20px">Dataset</h4>
 
             <div class="nivoSlider" style="height:378px" οnmοuseοver="new_stop()" οnmοuseοut="new_start()">
                 <div class="new_slide">
-                    <img src="./assert/real_scene/chair_1.png">
+                    <img src="./assert/image/chair_1.png">
                 </div>
                 <div class="new_slide">
-                    <img src="./assert/real_scene/car_1.png">
+                    <img src="./assert/image/car_1.png">
                 </div>
                 <div class="new_slide">
-                    <img src="./assert/real_scene/tree_1.png">
+                    <img src="./assert/image/tree_1.png">
                 </div>
                 <div class="new_slide">
-                    <img src="./assert/real_scene/chair_2.png">
+                    <img src="./assert/image/chair_2.png">
                 </div>
                 <div class="new_slide">
-                    <img src="./assert/real_scene/car_2.png">
+                    <img src="./assert/image/car_2.png">
                 </div>
                 <div class="new_slide">
-                    <img src="./assert/real_scene/tree_2.png">
+                    <img src="./assert/image/tree_2.png">
                 </div>
             </div>
-            <h4 class="text-center" style="margin-top: 20px">Results</h4>
+            <h4 class="text-center" style="margin-top: 20px">Real-world scenes Results</h4>
 
             <div class="row">
 
@@ -562,8 +539,40 @@
 
             </div>
     </div>
-    <script src="./popper.js"></script>
-    <script src="./bootstrap.min.js"></script>
+    <script>
+        $(".slider").each(function () {
+
+            var img = $(this).find('img');
+
+            var img1 = img.eq(0);
+
+            var img2 = img.eq(1);
+
+            var div = document.createElement('div');
+
+            $(div).append(img1);
+
+            var input = document.createElement('input');
+
+            input.type = 'range';
+
+            input.oninput = function () {
+
+                div.style.width = this.value + "%";
+
+            }
+
+            $(this).html("");
+
+            $(this).append(img2);
+
+            $(this).append(div);
+
+            $(this).append(input);
+
+        });
+    </script>
+
 
 
 
