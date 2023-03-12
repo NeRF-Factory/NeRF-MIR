@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <script src="./jquery.min.js"></script>
     <title>DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
 </head>
 <style>
@@ -23,9 +23,68 @@
 
         position: absolute;
     }
+
+    .nivoSlider .new_slide {
+
+        position: absolute;
+    }
+
+    .slider {
+
+        position: relative;
+
+        display: inline-block;
+
+        width: 504px;
+
+        height: 378px;
+
+    }
+
+
+
+    .slider>div {
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        bottom: 0;
+
+        width: 50%;
+
+        overflow: hidden;
+
+        resize: horizontal;
+
+    }
+
+    .slider>img {
+
+        display: block;
+
+        /* filter: sepia(1) saturate(.6); */
+        /*设置滤镜，模拟对比图片*/
+
+    }
+
+    .slider input {
+
+        position: absolute;
+
+        left: 0;
+
+        bottom: 10px;
+
+        width: 100%;
+
+        margin: 0;
+
+    }
 </style>
 
 <body>
+
 
     <div class="container">
         <br>
@@ -43,7 +102,7 @@
             <!--            <span style="margin-right: 10px; font-size: 1.2em;">CVPR 2021 (oral, <strong>best paper award</strong>)</span>-->
             <!--        </div>        -->
             <div>
-                <span style="margin-right: 10px; font-size: 1.2em;">Anonymous CVPR submission</span>
+                <span style="margin-right: 10px; font-size: 1.2em;">Anonymous ICCV submission</span>
             </div>
         </div>
         <div class="text-center" style="margin-top: 60px; margin-bottom: 20px;">
@@ -64,27 +123,21 @@
             </h2>
             <p style="font-style: italic;">
                 Recently, neural radiance fields (NeRF) have demonstrated remarkable performance in novel view
-                synthesis.
-                However, there is little work on recovering 3D scenes with
-                interference, which is ubiquitous in natural scene capture
-                and can significantly degrade the performance of NeRFs.
-                In this paper, we present DeMask-NeRF, a neural rendering
-                method for restoring masked realistic scene images. Observing that randomly emitting rays to pixels in
-                NeRFs can-
-                not effectively learn complex textures in images, we propose an image entropy-based ray allocation
-                strategy to
-                properly distribute the emitted rays, which enables DeMask-NeRF to fuse useful information from images
-                of different
-                views. In addition, we develop an iteration restoration
-                mechanism to progressively restore the masked images in
-                a self-training way. Our method can be easily plugged into
-                most existing NeRF methods, and applicable to many subsequent computer vision tasks. As existing
-                datasets do not
-                support NeRF-based masked image restoration, we build
-                the light-field-forward-facing masked dataset (LLFF-M in
-                short) based on the LLFF dataset to simulate interference
-                scenarios. Extensive experiments on LLFF-M show that
-                DeMask-NeRF is superior to the counterparts in masked image restoration.
+                synthesis. However, there is little work on recovering 3D scenes with interference, which is ubiquitous
+                in natural scene capture and can significantly degrade the performance of NeRFs. In this paper, we
+                present DeMask-NeRF, a neural rendering method for restoring masked realistic scene images, which shows
+                that using NeRF for masked scene restoration is a promising direction.
+                Observing that randomly emitting rays to pixels in NeRFs cannot effectively learn complex textures in
+                images,
+                we propose a Patch-Based Entropy for Ray Emitting (PERE) strategy to properly distribute the emitted
+                rays, which enables DeMask-NeRF to fuse effective information from images of different views. Then, we
+                develop a Progressively Iterative Restoration (PIRE) mechanism to restore the masked regions in a
+                self-training way.
+                In addition, a dynamically weighted loss is presented to automatically adjusts the loss weights of
+                masked regions and non-masked regions. On the other hand, as existing datasets do not support NeRF-based
+                masked image restoration, we build two new datasets LLFF-M and Spaces-M to simulate interference
+                scenarios, based on two existing datasets LLFF and Spaces. Extensive experiments on both synthetic and
+                real-world datasets show that DeMask-NeRF is superior to its counterparts in masked image restoration.
             </p>
         </div>
         <div style="margin-top:10px;">
@@ -97,6 +150,60 @@
                 </video>
             </div>
         </div>
+        <h4 class="text-center" style="margin-top: 20px">Slide to remove mask!</h4>
+        <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
+            <div class="slider">
+                <img src="assert/slider/fern_data.png" alt="">
+                <img src="assert/slider/fern_result.png" alt="">
+            </div>
+            <div class="slider">
+                <img src="assert/slider/flower_data.png" alt="">
+                <img src="assert/slider/flower_result.png" alt="">
+            </div>
+        </div>
+        <div class="row" style="display: flex;flex-direction: row;justify-content: center;">
+            <div class="slider" style=" width: 800px;height: 480px;">
+                <img src="assert/slider/052_data.JPG" alt="">
+                <img src="assert/slider/052_result.png" alt="">
+            </div>
+            <div class="slider" style=" width: 800px;height: 480px;">
+                <img src="assert/slider/073_data.JPG" alt="">
+                <img src="assert/slider/073_result.png" alt="">
+            </div>
+        </div>
+        <script>
+            $(".slider").each(function () {
+
+                var img = $(this).find('img');
+
+                var img1 = img.eq(0);
+
+                var img2 = img.eq(1);
+
+                var div = document.createElement('div');
+
+                $(div).append(img1);
+
+                var input = document.createElement('input');
+
+                input.type = 'range';
+
+                input.oninput = function () {
+
+                    div.style.width = this.value + "%";
+
+                }
+
+                $(this).html("");
+
+                $(this).append(img2);
+
+                $(this).append(div);
+
+                $(this).append(input);
+
+            });
+        </script>
         <div style="margin-top:20px;">
             <h2 class="text-center">
                 Dataset
@@ -133,6 +240,11 @@
                     for (var i = 0; i < arr.length; i++) {
                         arr[i].style.left = i * 504 + "px";
                     }
+
+                    var new_arr = document.getElementsByClassName("new_slide");
+                    for (var i = 0; i < new_arr.length; i++) {
+                        new_arr[i].style.left = i * 378 + "px";
+                    }
                 }
 
                 function LeftMove() {
@@ -150,7 +262,42 @@
 
                 }
 
+                function new_LeftMove() {
+                    var new_arr = document.getElementsByClassName("new_slide");
+                    for (var i = 0; i < new_arr.length; i++) {
+                        var new_left = parseFloat(new_arr[i].style.left);
+                        new_left -= 2;
+                        var width = 378;
+                        if (new_left <= -width) {
+                            new_left = (new_arr.length - 1) * width;
+                            clearInterval(new_moveId);
+                        }
+                        new_arr[i].style.left = new_left + "px";
+                    }
+
+                }
+
                 moveId = setInterval(LeftMove, 10);
+
+                new_moveId = setInterval(new_LeftMove, 10);
+
+                function new_divInterval() {
+                    new_moveId = setInterval(new_LeftMove, 10);
+                }
+
+                new_timeId = setInterval(divInterval, 5000);
+
+                function new_stop() {
+                    clearInterval(new_timeId);
+                    clearInterval(new_moveId);
+                }
+                function new_start() {
+                    new_moveId = setInterval(new_LeftMove, 10);
+                    clearInterval(new_timeId);
+                    new_timeId = setInterval(new_divInterval, 6461);
+                }
+
+
 
 
                 function divInterval() {
@@ -170,9 +317,13 @@
                 }
                 onblur = function () {
                     stop();
+                    new_stop();
+
                 }
                 onfocus = function () {
                     start();
+                    new_start();
+
                 }
 
             </script>
@@ -279,40 +430,41 @@
                     </div>
                 </div>
             </div>
-            <h4 class="text-center" style="margin-top: 20px">The effect of different progressively iteration</h4>
-            <div class="row">
-                <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-                    
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                            <source src="./assert/trex_t1.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="text-center">
-                        <p>
-                            t = 1
-                        </p>
-                    </div>
+
+
+        </div>
+        <h4 class="text-center" style="margin-top: 20px">The effect of different progressively iteration</h4>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 gallery">
+
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                        <source src="./assert/trex_t1.mp4" type="video/mp4">
+                    </video>
                 </div>
-                <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-                   
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
-                            <source src="./assert/trex_t5.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                    <div class="text-center">
-                        <p>
-                            t = 5
-                        </p>
-                    </div>
+                <div class="text-center">
+                    <p>
+                        t = 1
+                    </p>
                 </div>
             </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 gallery">
 
+                <div class="embed-responsive embed-responsive-16by9">
+                    <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                        <source src="./assert/trex_t5.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="text-center">
+                    <p>
+                        t = 5
+                    </p>
+                </div>
+            </div>
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-                
+
                 <div class="embed-responsive embed-responsive-16by9">
                     <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
                         <source src="./assert/trex_t10.mp4" type="video/mp4">
@@ -326,7 +478,7 @@
 
             </div>
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
-               
+
                 <div class="embed-responsive embed-responsive-16by9">
                     <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
                         <source src="./assert/trex_t20.mp4" type="video/mp4">
@@ -339,29 +491,77 @@
                 </div>
             </div>
         </div>
+
+        <h3 class="text-center" style="margin-top: 20px">Real-world scenes</h4>
+            <h4 class="text-center" style="margin-top: 20px">Dataset</h4>
+
+            <div class="nivoSlider" style="height:378px" οnmοuseοver="new_stop()" οnmοuseοut="new_start()">
+                <div class="new_slide">
+                    <img src="./assert/real_scene/chair_1.png">
+                </div>
+                <div class="new_slide">
+                    <img src="./assert/real_scene/car_1.png">
+                </div>
+                <div class="new_slide">
+                    <img src="./assert/real_scene/tree_1.png">
+                </div>
+                <div class="new_slide">
+                    <img src="./assert/real_scene/chair_2.png">
+                </div>
+                <div class="new_slide">
+                    <img src="./assert/real_scene/car_2.png">
+                </div>
+                <div class="new_slide">
+                    <img src="./assert/real_scene/tree_2.png">
+                </div>
+            </div>
+            <h4 class="text-center" style="margin-top: 20px">Results</h4>
+
+            <div class="row">
+
+                <div class="col-md-4 col-sm-4 col-xs-12 gallery">
+
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                            <source src="./assert/defoliation_ours.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="text-center">
+                        <p>
+                            Defoliation
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 gallery">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                            <source src="./assert/snowflakes_ours.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="text-center">
+                        <p>
+                            Snowflakes
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-12 gallery">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video controls="" loop="" muted="" autoplay="" class="embed-responsive-item">
+                            <source src="./assert/tree_ours.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class="text-center">
+                        <p>
+                            Petal
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+
+            </div>
     </div>
-    <!--    <div>-->
-    <!--        <h2 class="text-center">-->
-    <!--            Citation-->
-    <!--        </h2>-->
-    <!--        <p>-->
-    <!--            If you want to cite our work, please use:-->
-    <!--        </p>-->
-    <!--        <pre>        @inproceedings{...,-->
-    <!--          author    = {...},-->
-    <!--          title     = {DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration},-->
-    <!--          booktitle   = {Proc. IEEE Conf. on Computer Vision and Pattern Recognition (CVPR)},-->
-    <!--          year      = {2023},-->
-    <!--        }-->
-    <!--      </pre>-->
-    <!--    </div>-->
-    <!-- 为整个页面添加onload加载完成事件，当浏览器打开并加载完并自动执行事件中的代码块 -->
-    <!-- 当页面加载完全，四个div（图片）应该并列在一起。 -->
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="./jquery.min.js"></script>
     <script src="./popper.js"></script>
     <script src="./bootstrap.min.js"></script>
 
