@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="./jquery.min.js"></script>
-    <title>DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration</title>
+    <title>NeRF-MIR: Neural Radiance Fields for Masked Image Restoration</title>
 </head>
 <style>
     .nivoSlider {
@@ -89,7 +89,7 @@
     <div class="container">
         <br>
         <div style="text-align: center;">
-            <h1>DeMask-NeRF:</h1>
+            <h1>NeRF-MIR:</h1>
             <h3>Neural Radiance Fields for Masked Image Restoration</h3>
             <!--        <div style="margin-bottom: 10px;">-->
             <!--            <span style="margin-right: 10px; font-size: 1.2em;">Michael Niemeyer</span> <span style="font-size: 1.2em;">Andreas Geiger</span>-->
@@ -125,19 +125,19 @@
                 Recently, neural radiance fields (NeRF) have demonstrated remarkable performance in novel view
                 synthesis. However, there is little work on recovering 3D scenes with interference, which is ubiquitous
                 in natural scene capture and can significantly degrade the performance of NeRFs. In this paper, we
-                present DeMask-NeRF, a neural rendering method for restoring masked realistic scene images, which shows
+                present NeRF-MIR, a neural rendering method for restoring masked realistic scene images, which shows
                 that using NeRF for masked scene restoration is a promising direction.
                 Observing that randomly emitting rays to pixels in NeRFs cannot effectively learn complex textures in
                 images,
                 we propose a Patch-Based Entropy for Ray Emitting (PERE) strategy to properly distribute the emitted
-                rays, which enables DeMask-NeRF to fuse effective information from images of different views. Then, we
+                rays, which enables NeRF-MIR to fuse effective information from images of different views. Then, we
                 develop a Progressively Iterative Restoration (PIRE) mechanism to restore the masked regions in a
                 self-training way.
                 In addition, a dynamically weighted loss is presented to automatically adjusts the loss weights of
                 masked regions and non-masked regions. On the other hand, as existing datasets do not support NeRF-based
                 masked image restoration, we build two new datasets LLFF-M and Spaces-M to simulate interference
                 scenarios, based on two existing datasets LLFF and Spaces. Extensive experiments on both synthetic and
-                real-world datasets show that DeMask-NeRF is superior to its counterparts in masked image restoration.
+                real-world datasets show that NeRF-MIR is superior to its counterparts in masked image restoration.
             </p>
         </div>
         <div style="margin-top:10px;">
@@ -311,7 +311,7 @@
                 <div class="col-md-6 col-sm-6 col-xs-12 gallery">
                     <div class="text-center">
                         <p>
-                            DeMask-NeRF
+                            NeRF-MIR
                         </p>
                     </div>
                     <div class="embed-responsive embed-responsive-16by9">
@@ -467,7 +467,7 @@
             <div class="col-md-6 col-sm-6 col-xs-12 gallery">
                 <div class="text-center">
                     <p>
-                        DeMask-NeRF
+                        NeRF-MIR
                     </p>
                 </div>
                 <div class="embed-responsive embed-responsive-16by9">
