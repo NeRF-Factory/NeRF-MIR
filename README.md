@@ -1,2 +1,2 @@
-# DeMask-NeRF
-Supplementary materials for the paper DeMask-NeRF: Neural Radiance Fields for Masked Image Restoration
+# NeRF-MIR
+Supplementary materials for the paper NeRF-MIR: Neural Radiance Fields for Masked Image Restoration
